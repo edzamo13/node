@@ -15,8 +15,9 @@ export class ProductsService {
     return this.productRepo.find();
   }
 
-  findOne(id: number) {
-    const product = this.productRepo.findOne(id);
+  //programacion asincrona porque nos devuelve una Promise
+  async findOne(id: number) {
+    const product = await this.productRepo.findOne(id);
     if (!product) {
       throw new NotFoundException(`Product #${id} not found`);
     }
