@@ -7,8 +7,6 @@ import {
 } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 
-//@ApiProperty hay que agregar en todos si se usa la libreria de swwager
-
 export class CreateProductDto {
   @IsString()
   @IsNotEmpty()
@@ -28,6 +26,7 @@ export class CreateProductDto {
 
   @IsNumber()
   @IsNotEmpty()
+  @ApiProperty()
   readonly stock: number;
 
   @IsUrl()
