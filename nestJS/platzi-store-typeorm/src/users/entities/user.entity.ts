@@ -1,11 +1,11 @@
 import {
   Entity,
   Column,
+  PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
   OneToOne,
   JoinColumn,
-  PrimaryGeneratedColumn,
 } from 'typeorm';
 
 import { Customer } from './customer.entity';
@@ -37,6 +37,6 @@ export class User {
   updateAt: Date;
 
   @OneToOne(() => Customer, (customer) => customer.user, { nullable: true })
-  @JoinColumn() // en relaciones uno a uno solo uno debe tener este valor
+  @JoinColumn()
   customer: Customer;
 }

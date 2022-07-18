@@ -18,7 +18,7 @@ export class UsersService {
     private configService: ConfigService,
     @Inject('PG') private clientPg: Client,
     @InjectRepository(User) private userRepo: Repository<User>,
-    private customerService: CustomersService,
+    private customersService: CustomersService,
   ) {}
 
   findAll() {
@@ -41,7 +41,7 @@ export class UsersService {
   async create(data: CreateUserDto) {
     const newUser = this.userRepo.create(data);
     if (data.customerId) {
-      const customer = await this.customerService.findOne(data.customerId);
+      const customer = await this.customersService.findOne(data.customerId);
       newUser.customer = customer;
     }
     return this.userRepo.save(newUser);

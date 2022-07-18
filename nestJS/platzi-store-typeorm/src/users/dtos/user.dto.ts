@@ -3,8 +3,8 @@ import {
   IsNotEmpty,
   IsEmail,
   Length,
-  IsOptional,
   IsPositive,
+  IsOptional,
 } from 'class-validator';
 import { PartialType, ApiProperty } from '@nestjs/swagger';
 
